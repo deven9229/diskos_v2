@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Reddit</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Diskos</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= render partial: "layouts/header" %>
+<body>
+  <%= render partial: "layouts/header" %>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
-    <%= yield %>
-
-
-    <%= render partial: "layouts/footer" %>
-  </body>
+  <%= render partial: "layouts/footer" %>
+</body>
 </html>
