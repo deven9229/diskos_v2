@@ -2,8 +2,8 @@
 <div class="float-right">
   <%= link_to "Create New Community", new_community_path, class: "btn  btn-outline-primary" %>
 </div>
-
 <% end %>
+
 <% if @communities.size > 0 %>
 <%= @communities.each do |community| %>
 <div class="card">
@@ -11,6 +11,7 @@
   <%= simple_format community.rules %>
 </div>
 <% end %>
+
 <% else %>
 <p>No communities to display.</p>
 <% end %>
