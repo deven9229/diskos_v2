@@ -1,15 +1,25 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 pt-3 pb-3 mb-3 border-bottom">
-      <div class="float-right">
-        <% if account_signed_in? %>
-        <%= link_to "Sign Out", destroy_account_session_path, method: :delete, class: "btn btn-outline-primary" %>
-        <% else %>
-        <%= link_to "Log In", new_account_session_path, class: "btn btn-outline-primary" %>
-        <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-outline-primary" %>
-        <% end %>
-      </div>
-      <p class="h3"><%= link_to "Diskos", root_path %></p>
-    </div>
+<div class="row">
+  <div class="col-12 pt-3 pb-3 mb-3 border-bottom">
+    <div class="float-right">
+      <% if account_signed_in? %>
+      <div class="dropdown">
+<a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <%= current_account.full_name %>
+</a>
+
+<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <%= link_to "Profile", "",  class: "dropdown-item" %>
+      <%= link_to "Setting", edit_account_registration_path, class: "dropdown-item" %>
+      <%= link_to "Sign Out", destroy_account_session_path, method: :delete, class: "dropdown-item" %>
   </div>
+</div> 
+      <% else %>
+      <%= link_to "Log In", new_account_session_path, class: "btn btn-outline-primary" %>
+      <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-outline-primary" %>
+      <% end %>
+    </div>
+    <p class="h3"><%= link_to "Diskos", root_path %></p>
+  </div>
+</div>
 </div>
