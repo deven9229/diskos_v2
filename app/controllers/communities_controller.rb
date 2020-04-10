@@ -2,6 +2,7 @@ class CommunitiesController < ApplicationController
   before_action :authenticate_account!, expect: [:index, :show]
   before_action :set_community, only: [:show]
 
+
   def index
     @communities = Community.all
   end
@@ -9,6 +10,8 @@ class CommunitiesController < ApplicationController
   def show
     @posts = @community.posts
     @subscriber_count = @community.subscribers.count
+    @is_subscribed = account_signed_in? ? Subscription.where(community_id: @community.id, account_id: current_account.id).any? : false
+    @subscription = Subscription.new
   end
 
   def new
